@@ -2,7 +2,7 @@
 {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     /* border: 2px solid salmon; */
     /* width: 100%; */
     height: 95vh;
@@ -11,14 +11,15 @@
 
 .mainText
 {
-    color: aliceblue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
     font-size: 14vh;
     text-align: center;
     /* border: 2px solid blue; */
     height: 50%;
-    width: 100%;
+    width: 70%;
     align-self: center;
-    margin-top: 15%;
+    margin-top: 20%;
 }
 
 .mainBody
@@ -36,4 +37,75 @@
 .tagLogo
 {
     width: 40%;
+}
+
+.selectButtonLeft
+{
+    background-color: transparent;
+    border: none;
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+}
+
+.selectButtonLeft:hover
+{
+    cursor: pointer;
+    
+}
+
+.selectButtonRight
+{
+    background-color: transparent;
+    border: none;
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+}
+
+.selectButtonRight:hover
+{
+    cursor: pointer;
+    
+}
+
+
+.buttonImageLeft
+{
+    width: 307px;
+    /* border: 2px solid purple; */
+    transition: 1s;
+    /* border: 2px solid salmon; */
+    /* height: 66px; */
+}
+
+.buttonImageLeft:hover
+{
+    /* zoom: 150%; */
+    /* background-color: aqua; */
+    transform: scale(1.2);
+    margin-left: 2.5vw;
+    /* margin-right: 30%; */
+}
+
+.buttonImageRight
+{
+    width: 307px;
+    /* border: 2px solid purple; */
+    transition: 1s;
+    /* border: 2px solid salmon; */
+    /* height: 66px; */
+}
+
+.buttonImageRight:hover
+{
+    /* zoom: 150%; */
+    /* background-color: aqua; */
+    transform: scale(1.2);
+    /* margin-left: 15%; */
+    margin-right: 2.5vw;
 }
