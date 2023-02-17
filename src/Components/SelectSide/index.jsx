@@ -1,9 +1,13 @@
-import SelectButton from "./SelectButton";
+// import { auth } from "../../firebaseConfig.js";
+// import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import "./index.css"
+import {motion} from "framer-motion";r
 import { auth, provider, db } from "../../firebaseConfig.js";
 import { signInWithPopup } from "firebase/auth";
 import "./index.css";
 import { doc, setDoc } from "firebase/firestore";
 import { motion } from "framer-motion";
+
 
 const SelectSide = () => {
   async function login() {
@@ -29,16 +33,19 @@ const SelectSide = () => {
   }
 
   return (
+
+    <motion.div animate={{ y: [-100,50] }} transition={{ type: "spring", stiffness: 400 }} className="mainContainer">
+
     <motion.div
       animate={{ y: [-100, 50] }}
       transition={{ type: "spring", stiffness: 400 }}
       className="mainContainer"
     >
-      <SelectButton
-        image={"./Assets/ps5.png"}
-        label={"PC"}
-        onClick={() => handleClick("PC")}
-      />
+      <div className="selectButtonLeft" onClick={() => handleClick("PS")}>
+          <img className="buttonImageLeft" src="./Assets/ps5.png"/>
+      </div>;
+
+
       <motion.div className="mainBody">
         <motion.div className="logoDiv">
           <img src="./Assets/tagLogo.png" className="tagLogo" alt="LOGO" />
@@ -51,11 +58,12 @@ const SelectSide = () => {
           CHOOSE YOUR PLATFORM
         </motion.div>
       </motion.div>
-      <SelectButton
-        image={"./Assets/pc.png"}
-        label={"PS"}
-        onClick={() => handleClick("PS")}
-      />
+
+      <div className="selectButtonRight" onClick={() => handleClick("PC")}>
+          <img className="buttonImageRight" src="./Assets/pc.png"/>
+      </div>;
+
+
     </motion.div>
   );
 };
