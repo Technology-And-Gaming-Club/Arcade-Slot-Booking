@@ -4,6 +4,7 @@ import "./index.css";
 // import {motion} from "framer-motion";
 import { auth, provider, db } from "../../firebaseConfig.js";
 // import { signInWithPopup } from "firebase/auth";
+import { useEffect, useState } from "react";
 import "./index.css";
 import {
   doc,
@@ -16,9 +17,28 @@ import {
 import { motion } from "framer-motion";
 
 export default function SelectSide() {
+  const [count, setCount] = useState({
+    PC: 0,
+    PS: 0,
+  });
+
+  useEffect(() => {
+    setCount(async () => {
+      const PC = await getCount("PC");
+      const PS = await getCount("PS");
+      return { PC, PS };
+    });
+  }, []);
+
   async function login() {
     const result = await signInWithPopup(auth, provider);
     return result.user;
+  }
+
+  async function getCount(platform) {
+    const q = query(collection(db, "users"), where("platform", "==", platform));
+    const players = await getDocs(q);
+    return players.size;
   }
 
   async function handleClick(platform) {
@@ -42,7 +62,7 @@ export default function SelectSide() {
 
       const max_players = {
         PC: 100,
-        PS: 32,
+        PS: 12,
       };
 
       if (players.size >= max_players[platform]) {
