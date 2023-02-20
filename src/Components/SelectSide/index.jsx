@@ -26,7 +26,7 @@ export default function SelectSide() {
     try {
       user = await login();
       console.log(user.email.search("@vitstudent.ac.in"));
-      if (user.email.search("@vitstudent.ac.in")) {
+      if (user.email.search("@vitstudent.ac.in") === -1) {
         alert("Use a Vit Email id");
         return;
       }
@@ -40,7 +40,12 @@ export default function SelectSide() {
       );
       const players = await getDocs(q);
 
-      if (players.size >= 2) {
+      const max_players = {
+        PC: 100,
+        PS: 32,
+      };
+
+      if (players.size >= max_players[platform]) {
         alert("Maximum Capacity Reached");
         return;
       }
@@ -48,7 +53,7 @@ export default function SelectSide() {
       const docRef = await setDoc(doc(db, "users", user.email), {
         platform,
       });
-      console.log("Document written with ID: ", docRef.id);
+      alert(user.email + " is successfully registered for " + platform);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
