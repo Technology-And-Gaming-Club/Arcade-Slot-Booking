@@ -77,6 +77,8 @@
 .buttonImageLeft
 {
     width: 307px;
+    height: 339px;
+    object-fit: none;
     /* border: 2px solid purple; */
     transition: 1s;
     /* border: 2px solid salmon; */
@@ -95,6 +97,7 @@
 .buttonImageRight
 {
     width: 307px;
+    height: 339px;
     /* border: 2px solid purple; */
     transition: 1s;
     /* border: 2px solid salmon; */
@@ -108,4 +111,17 @@
     transform: scale(1.2);
     /* margin-left: 15%; */
     margin-right: 2.5vw;
+}
+
+.bruhmoment
+{
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    font-size: 3vh;
+    /* border: 2px solid red; */
+    /* justify-self: end; */
+    /* position: fixed; */
+    margin-top: 40%;
+    /* bottom: 20px; */
 }

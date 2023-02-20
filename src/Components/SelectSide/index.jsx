@@ -22,24 +22,47 @@ export default function SelectSide() {
     PS: 0,
   });
 
+  const [psCNT, setPS] = useState(0);
+  const [pcCNT, setPC] = useState(0);
+  const [doReload, setReload] = useState(false);
+
+
+  // useEffect(() => {
+  //   setCount(async () => {
+  //     const pc = await getCount("PC");
+  //     const ps = await getCount("PS");
+  //     setValidity(true);
+  //     return { PC:pc, PS:ps };
+  //   });
+  // }, []);
+
   useEffect(() => {
-    setCount(async () => {
-      const PC = await getCount("PC");
-      const PS = await getCount("PS");
-      return { PC, PS };
-    });
-  }, []);
+    getCount();
+
+  }, [doReload]);
 
   async function login() {
     const result = await signInWithPopup(auth, provider);
+    setReload(true);
+    setReload(false);
     return result.user;
   }
 
-  async function getCount(platform) {
-    const q = query(collection(db, "users"), where("platform", "==", platform));
-    const players = await getDocs(q);
-    return players.size;
+  async function getCount() {
+    const q1 = query(collection(db, "users"), where("platform", "==", 'PS'));
+    const players1 = await getDocs(q1);
+    setPS(players1.size);
+
+    const q2 = query(collection(db, "users"), where("platform", "==", 'PC'));
+    const players2 = await getDocs(q2);
+    setPC(players2.size);
+    // return players.size;
   }
+
+  const max_players = {
+    PC: 100,
+    PS: 12,
+  };
 
   async function handleClick(platform) {
     let user;
@@ -59,11 +82,6 @@ export default function SelectSide() {
         where("platform", "==", platform)
       );
       const players = await getDocs(q);
-
-      const max_players = {
-        PC: 100,
-        PS: 12,
-      };
 
       if (players.size >= max_players[platform]) {
         alert("Maximum Capacity Reached");
@@ -87,6 +105,7 @@ export default function SelectSide() {
     >
       <div className="selectButtonLeft" onClick={() => handleClick("PS")}>
         <img className="buttonImageLeft" src="./Assets/ps5.png" />
+        <div className="bruhmoment">{max_players.PS - psCNT} SEATS AVAILABLE</div>
       </div>
       ;
       <motion.div className="mainBody">
@@ -103,6 +122,7 @@ export default function SelectSide() {
       </motion.div>
       <div className="selectButtonRight" onClick={() => handleClick("PC")}>
         <img className="buttonImageRight" src="./Assets/pc.png" />
+        <div className="bruhmoment">{max_players.PC - pcCNT} SEATS AVAILABLE</div>
       </div>
       ;
     </motion.div>
