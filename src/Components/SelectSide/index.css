@@ -9,6 +9,16 @@
     width: 100vw;
 }
 
+.mobileSelectButtonLeft
+{
+    display: none;
+}
+
+.mobileSelectButtonRight
+{
+    display: none;
+}
+
 .mainText
 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -124,4 +134,77 @@
     /* position: fixed; */
     margin-top: 40%;
     /* bottom: 20px; */
+}
+
+
+/* RESPONSIVENESS */
+@media only screen and (max-width: 500px)
+{
+    .mobileSelectButtonLeft
+    {
+        color: white;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        display: flex;
+        flex-direction: column;
+        visibility: visible;
+        justify-self: center;
+        margin-top: 20%;
+        /* border: 2px solid greenyellow; */
+    }
+
+    .selectButtonLeft
+    {
+        display: none;
+    }
+
+    .mobileSelectButtonRight
+    {
+        color: white;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        display: flex;
+        flex-direction: column;
+        visibility: visible;
+        justify-self: center;
+        margin-top: 20%;
+        /* border: 2px solid greenyellow; */
+    }
+
+    .selectButtonRight
+    {
+        display: none;
+    }
+
+    .mainText
+    {
+        font-size: 3.5vh;
+        /* border: 2px solid red; */
+        margin-top: 150%;
+        text-align: center;
+    }
+    
+    /* .mobileHeading
+    {
+        margin-top: 250%;
+    } */
+
+    .buttonImageLeft
+    {
+        margin-top: 150%;
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    .buttonImageRight
+    {
+        margin-top: 150%;
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    .logoDiv
+    {
+        margin-top: -10%;
+    }
 }

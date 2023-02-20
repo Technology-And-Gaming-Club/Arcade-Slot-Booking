@@ -27,14 +27,6 @@ export default function SelectSide() {
   const [doReload, setReload] = useState(false);
 
 
-  // useEffect(() => {
-  //   setCount(async () => {
-  //     const pc = await getCount("PC");
-  //     const ps = await getCount("PS");
-  //     setValidity(true);
-  //     return { PC:pc, PS:ps };
-  //   });
-  // }, []);
 
   useEffect(() => {
     getCount();
@@ -60,7 +52,7 @@ export default function SelectSide() {
   }
 
   const max_players = {
-    PC: 100,
+    PC: 195,
     PS: 12,
   };
 
@@ -70,7 +62,7 @@ export default function SelectSide() {
       user = await login();
       console.log(user.email.search("@vitstudent.ac.in"));
       if (user.email.search("@vitstudent.ac.in") === -1) {
-        alert("Use a Vit Email id");
+        alert("Use a VIT Email-id");
         return;
       }
     } catch (e) {
@@ -107,7 +99,15 @@ export default function SelectSide() {
         <img className="buttonImageLeft" src="./Assets/ps5.png" />
         <div className="bruhmoment">{max_players.PS - psCNT} SEATS AVAILABLE</div>
       </div>
-      ;
+      
+      <motion.div className="mobileSelectButtonLeft" onClick={()=>handleClick("PS")}>
+        {/* <div className="mobileHeading">
+          PS5
+        </div> */}
+        <img className="buttonImageLeft" src="./Assets/ps5.png" />
+        <div className="bruhmoment">{max_players.PS - psCNT} SEATS AVAILABLE</div>
+      </motion.div>
+
       <motion.div className="mainBody">
         <motion.div className="logoDiv">
           <img src="./Assets/tagLogo.png" className="tagLogo" alt="LOGO" />
@@ -124,7 +124,15 @@ export default function SelectSide() {
         <img className="buttonImageRight" src="./Assets/pc.png" />
         <div className="bruhmoment">{max_players.PC - pcCNT} SEATS AVAILABLE</div>
       </div>
-      ;
+
+      <motion.div className="mobileSelectButtonRight" onClick={()=>handleClick("PC")}>
+        {/* <div className="mobileHeading">
+          PC
+        </div> */}
+        <img className="buttonImageRight" src="./Assets/pc.png" />
+        <div className="bruhmoment">{max_players.PC - pcCNT} SEATS AVAILABLE</div>
+      </motion.div>
+
     </motion.div>
   );
 }
