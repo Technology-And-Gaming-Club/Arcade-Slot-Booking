@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Arcade-Slot-Booking/static/css/main.f31d063a.css",
+    "main.js": "/Arcade-Slot-Booking/static/js/main.16b869e5.js",
+    "index.html": "/Arcade-Slot-Booking/index.html",
+    "main.f31d063a.css.map": "/Arcade-Slot-Booking/static/css/main.f31d063a.css.map",
+    "main.16b869e5.js.map": "/Arcade-Slot-Booking/static/js/main.16b869e5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f31d063a.css",
+    "static/js/main.16b869e5.js"
+  ]
+}
